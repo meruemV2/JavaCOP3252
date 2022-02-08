@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class CountDuplicateWords{
+	
+	public static void main(String[] args)
+
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a sentence to count words...");
+
+		String sentence = sc.nextLine();
+
+		String[] word = sentence.split(" "); 
+
+		int count = 1;
+
+		System.out.println("Duplicate Words are...\n ");
+
+		for (int i = 0; i < word.length; i++) 
+		{
+			for (int j = i + 1; j < word.length; j++)
+			{
+				if (word[i].toUpperCase().equals(word[j].toUpperCase()))
+				{
+					count++;
+					word[j] = "/n";
+				}
+			}
+			if ((word[i] != "/n") && (count > 1))
+
+				System.out.println(word[i] + ": " + count + "\n");
+			count = 1;
+		}
+	}
+}
